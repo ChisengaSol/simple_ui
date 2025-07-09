@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>My First Webpage</Title>
+        <style>
+            body{
+                text-align: center;
+            }
+            button{
+                background-color: blue;
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Email Spam Classifier</h1>
+        <form method="post" action="/predict">
+            <textarea placeholder="Enter Your email Body..." rows="15" cols="35" name="email-content">{{ email_text }}</textarea>
+            <div>
+                <button>Check Spam</button>
+                <a href="/">Reset</a>
+            </div>
+        </form>
+        <!--Here we are writing python code to give words-->
+        {% if predictions == 1 %}
+            <h2>SPAM</h2> <!--Use ginger template-->
+        {% elif predictions == -1 %}
+            <h2>NOT SPAM</h2>
+        {% endif %}
+    </body>
+</html>
